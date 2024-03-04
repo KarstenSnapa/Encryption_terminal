@@ -1,6 +1,6 @@
 import random
 
-message = ''
+messages = ''
 public_key = ''
 private_key = ''
 private_space = ''
@@ -8,35 +8,29 @@ private_space = ''
 def create_private_key():
     global private_key
     private_key = random.randint(3, 30)
-    print("Din private key: ",  private_key)
-    print("test")
-    
+    print("---------------------------")
+    print("Din private key:", private_key)
+
 
 def create_public_key():
-    public_key = random.randint(3, 9)
+    global message
     print("Skriv inn meldingen din her:")
-
     message = input('')
-
+    print(message)
 
     numbers = []
     for char in message:
-            if char.isalpha():
-                numbers.append(public_key)
-                numbers.append((ord(char.upper()) - ord('A') + 1) * public_key)
-                numbers.append("a")
-            elif char.isspace(): 
-                numbers.append("S")
-            else:
-                numbers.append(None)
+        if char.isalpha():
+            numbers.append(ord(char.upper()) - ord('A') + 1)
+            numbers.append("a")
+        elif char.isspace(): 
+            numbers.append("S")
+        else:
+            numbers.append(None)
 
-
-    print(numbers)
     numbers_str = ''.join(str(num) for num in numbers if num is not None)
-    
-    
-create_private_key()
+    return numbers_str
 
-while True:
-    print(create_public_key())
-    
+create_private_key()
+print(create_public_key())
+print("---------------------------")

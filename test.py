@@ -7,29 +7,27 @@ private_space = ''
 
 def create_private_key():
     global private_key
-    private_key = random.randint(3, 30)
+    private_key = random.randint(1, 2)
     print("---------------------------")
     print("Din private key:", private_key)
 
 
 def create_public_key():
-    global message
+    global messages, private_key
     print("Skriv inn meldingen din her:")
     message = input('')
-    print(message)
+    encrypted_message = caesar_cipher(message, private_key)
+    return encrypted_message
 
-    numbers = []
-    for char in message:
+def caesar_cipher(text, shift):
+    result = ''
+    for char in text:
         if char.isalpha():
-            numbers.append(ord(char.upper()) - ord('A') + 1)
-            numbers.append("a")
-        elif char.isspace(): 
-            numbers.append("S")
+            shifted_char = chr(((ord(char) - ord('a' if char.islower() else 'A') + shift) % 26) + ord('a' if char.islower() else 'A'))
+            result += shifted_char
         else:
-            numbers.append(None)
-
-    numbers_str = ''.join(str(num) for num in numbers if num is not None)
-    return numbers_str
+            result += char
+    return result
 
 create_private_key()
 print(create_public_key())

@@ -15,13 +15,13 @@ def create_private_key():
 def create_public_key():
     global message
     print("Skriv inn meldingen din her:")
-    message = input('')
+    message = input('Skriv meldingen din her')
     print(message)
 
     numbers = []
     for char in message:
         if char.isalpha():
-            numbers.append(ord(char.upper()) - ord('A') + 1)
+            numbers.append((ord(char.upper()) - ord('A') + 1) * private_key)
             numbers.append("a")
         elif char.isspace(): 
             numbers.append("S")

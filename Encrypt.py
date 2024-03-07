@@ -20,6 +20,7 @@ def create_public_key():
 
     numbers = []
     for char in message:
+        numbers.append("a")
         if char.isalpha():
             numbers.append((ord(char.upper()) - ord('A') + 1) * private_key)
             numbers.append("a")

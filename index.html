@@ -5,53 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
+    <link rel = 'stylesheet' href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 <body>
-    <h1>Hi</h1>
+    <h3>Hi</h3>
     <div>
         <py-repl id="my-id" auto-generate="true">  </py-repl>
-        <button type="submit" py-onClick="myFunction()">Knapp</button>
+        <button id ="myFunction" type="submit" pys-onClick="show_output">Knapp</button>
         
     </div>
 
     <py-script>
-        import random
+        from js import Element
 
-messages = ''
-public_key = ''
-private_key = ''
-private_space = ''
-
-def create_private_key():
-    global private_key
-    private_key = random.randint(3, 30)
-    print("---------------------------")
-    print("Din private key:", private_key)
-
-
-def create_public_key():
-    global message
-    print("Skriv inn meldingen din her:")
-    message = input('')
-    print(message)
-
-    numbers = []
-    for char in message:
-        if char.isalpha():
-            numbers.append((ord(char.upper()) - ord('A') + 1) * private_key)
-            numbers.append("a")
-        elif char.isspace(): 
-            numbers.append("S")
-        else:
-            numbers.append(None)
-
-    numbers_str = ''.join(str(num) for num in numbers if num is not None)
-    return numbers_str
-
-create_private_key()
-print(create_public_key())
-print("---------------------------")
+        def show_output(*args, **kwargs):
+                output = Element("output_div")
+                output.write("You Clicked Me!")
+                print("Hey")
     </py-script>
 </body>
 </html>

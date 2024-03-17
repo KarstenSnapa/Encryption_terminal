@@ -15,7 +15,7 @@ def create_private_key():
 def create_public_key():
     global message
     print("Skriv inn meldingen din her:")
-    message = input('Skriv meldingen din her')
+    message = input('')
     print(message)
 
     numbers = []
@@ -27,7 +27,7 @@ def create_public_key():
         elif char.isspace(): 
             numbers.append("S")
         else:
-            numbers.append(None)
+            numbers.append(char)
 
     numbers_str = ''.join(str(num) for num in numbers if num is not None)
     return numbers_str

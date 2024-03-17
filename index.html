@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
-    <link rel = 'stylesheet' href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <title>FUNJK!!!!!!!
+
+    </title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
-<body>
-    <h3>Hi</h3>
-    <div>
-        <py-repl id="my-id" auto-generate="true">  </py-repl>
-        <button id ="myFunction" type="submit" pys-onClick="show_output">Knapp</button>
-        
-    </div>
+<body style="text-align: center;">
+    <br><br>
+    <button py-click="show_output()" id="output" type="menu">Knapp</button>
+    <div class="output" py-update="output_message"></div>
 
     <py-script>
-        from js import Element
+output_message = "hei"
 
-        def show_output(*args, **kwargs):
-                output = Element("output_div")
-                output.write("You Clicked Me!")
-                print("Hey")
+def show_output():
+    print("hei")
     </py-script>
 </body>
 </html>
